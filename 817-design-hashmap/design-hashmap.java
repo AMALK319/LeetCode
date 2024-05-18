@@ -1,12 +1,12 @@
 
 class MyHashMap {
 
-    ArrayList<LinkedList<Pair>> list = new ArrayList<>(10);
+    ArrayList<LinkedList<Pair>> list ;
     int size;
     float loadFactor = 0.5f;
 
     public MyHashMap() {
-        list = new ArrayList<>();
+        list = new ArrayList<>(10);
         for(int i=0; i<10; i++){
             list.add(new LinkedList<>());
         }
@@ -23,10 +23,13 @@ class MyHashMap {
             }
         }
 
-        //if((float)size/list.size()>loadFactor) this.resize();
+        if( ((float)size / list.size()) > loadFactor) {
+            this.resize();
+            hash = Integer.valueOf(key).hashCode() % list.size(); // Recalculate hash after resizing
+            linkedList = list.get(hash); // Get the new bucket after resizing
+        }
 
         linkedList.add(new Pair(key, value));
-
         size++;
         
     }
@@ -60,6 +63,8 @@ class MyHashMap {
 
         ArrayList<LinkedList<Pair>> old = list;
         list = new ArrayList<>();
+
+        size = 0;
 
         for(int i=0; i<old.size()*2; i++){
             list.add(new LinkedList<>());
