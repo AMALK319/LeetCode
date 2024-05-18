@@ -25,8 +25,8 @@ class MyHashMap {
 
         if( ((float)size / list.size()) > loadFactor) {
             this.resize();
-            hash = Integer.valueOf(key).hashCode() % list.size(); // Recalculate hash after resizing
-            linkedList = list.get(hash); // Get the new bucket after resizing
+            hash = Integer.valueOf(key).hashCode() % list.size(); 
+            linkedList = list.get(hash); 
         }
 
         linkedList.add(new Pair(key, value));
