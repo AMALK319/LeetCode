@@ -1,10 +1,10 @@
-/* class Solution {
+class Solution {
     public String defangIPaddr(String address) {
         return address.replace(".", "[.]");    
     }
-} */
+}
 
-class Solution {
+/* class Solution {
     public String defangIPaddr(String address) {
         String defanged = "";
         String[] splitted = address.split("\\.");
@@ -13,4 +13,4 @@ class Solution {
         }    
         return defanged.concat(splitted[splitted.length-1]);
     }
-}
+} */
