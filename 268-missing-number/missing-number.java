@@ -1,5 +1,5 @@
 class Solution {
-    public int missingNumber(int[] nums) {
+  /*   public int missingNumber(int[] nums) {
         int res = 0;
         int n = nums.length;
         int[] occ = new int[n+1];
@@ -12,5 +12,21 @@ class Solution {
             if(occ[i]==0) res = i;
         }
         return res; 
-    }
+    } */
+
+
+
+
+
+     public int missingNumber(int[] nums) {
+
+        Arrays.sort(nums);
+        int t = 0;
+        for(int i = 0; i<nums.length; i++){
+            if(nums[i] != t) return t;
+            t++;
+        }
+        return t;
+     }
+
 }
