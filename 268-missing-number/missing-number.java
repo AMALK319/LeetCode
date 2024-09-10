@@ -23,8 +23,7 @@ class Solution {
         Arrays.sort(nums);
         int t = 0;
         for(int i = 0; i<nums.length; i++){
-            if(nums[i] != t) return t;
-            t++;
+            if(nums[i] == t) t++;
         }
         return t;
      }
