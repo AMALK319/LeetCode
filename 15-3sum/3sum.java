@@ -14,8 +14,8 @@ class Solution {
 
             int p = i+1 , q = nums.length-1;
             while(p<q){
-                int sum = nums[p]+nums[q]+nums[i];
-                if(sum == 0){
+                //int sum = nums[p]+nums[q]+nums[i];
+                if(nums[p]+nums[q] == - nums[i]){
                     temp = new ArrayList<>();
                     temp.add(nums[i]);
                     temp.add(nums[p]);
@@ -24,7 +24,7 @@ class Solution {
                     p++;
                     q--;
                 }
-                else if(sum < 0) 
+                else if(nums[p]+nums[q] < - nums[i]) 
                     p++;
                 else{
                     q--;
@@ -38,33 +38,3 @@ class Solution {
         
 
 }
-/* 
-class Solution {
-    public List<List<Integer>> threeSum(int[] nums) {
-        Arrays.sort(nums);
-        Set<List<Integer>> res = new HashSet<>();
-
-        for (int i = 0; i < nums.length; i++) {
-            if (nums[i] > 0) break;
-            if (i > 0 && nums[i] == nums[i - 1]) continue;
-
-            int l = i + 1, r = nums.length - 1;
-            while (l < r) {
-                int sum = nums[i] + nums[l] + nums[r];
-                if (sum > 0) {
-                    r--;
-                } else if (sum < 0) {
-                    l++;
-                } else {
-                    res.add(Arrays.asList(nums[i], nums[l], nums[r]));
-                    l++;
-                    r--;
-                   /*  while (l < r && nums[l] == nums[l - 1]) {
-                        l++;
-                    } 
-                }
-            }
-        }
-        return new ArrayList<>(res);
-    }
-} */
