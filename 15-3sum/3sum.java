@@ -10,7 +10,7 @@ class Solution {
         for(int i = 0; i<nums.length; i++){
             
             if(nums[i] > 0 ) break;
-            if (i>0 && nums[i] == nums[i-1]) continue;
+            //if (i>0 && nums[i] == nums[i-1]) continue;
 
             int p = i+1 , q = nums.length-1;
             while(p<q){
