@@ -9,7 +9,7 @@ from prices
 where product_id not in (select product_id from UnitsSold); */
 
 /* Solution using join */
-select p.product_id, NVL(ROUND(sum(units*price)/sum(units), 2), 0) as average_price 
+select p.product_id, COALESCE(ROUND(sum(units*price)/sum(units), 2), 0) as average_price 
 from prices p left join unitsSold u
 on p.product_id = u.product_id and purchase_date between start_date and end_date
 group by p.product_id;
