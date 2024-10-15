@@ -13,34 +13,21 @@ class Solution {
     public ListNode removeNthFromEnd(ListNode head, int n) {
  
         ListNode dummy = head;
-        int i = 0;
-        int m = getNodePosition(head, n);
+        ListNode result = head;
+        int dist = 0;
 
-        if(head.next == null) return null;
-        while(dummy.next != null){
-            if(i == m-1){
-                dummy.next = dummy.next.next;
-                return head;
+        while(head.next != null){
+            if(dist != n) dist++;
+            else{
+                dummy = dummy.next;
             }
-            i++;
-            dummy = dummy.next;
+            head = head.next;
         }
 
-        return head.next;
+        if(dist < n) return result.next;
+        if(dummy.next == null) return null;
+        dummy.next = dummy.next.next;
 
-       
-    
-    }
-
-    private int getNodePosition(ListNode head, int n){
-        ArrayList<Integer> temp = new ArrayList<>();
-        ListNode dummy = head;
-
-        while(dummy != null){
-            temp.add(dummy.val);
-            dummy = dummy.next;
-        }
-
-        return  temp.size() - n; 
+        return result;
     }
 }
