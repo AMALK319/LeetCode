@@ -4,25 +4,25 @@ class Solution {
        
         int[] freq = new int[26];
         int l = 0, r = 0;
-        int lPos = 0, rPos = 0;
+        
 
         for(char c : s1.toCharArray()){
-            int i = c - 'a';
-            freq[i]++;
+           
+            freq[ c - 'a']++;
         }
 
         while(l<s2.length()){
             
-            if(freq[(int) s2.charAt(l) - 'a'] != 0){
-                while(r<s2.length() && freq[(int)(s2.charAt(r) - 'a')] != 0 && r-l<s1.length()){
+            if(freq[ s2.charAt(l) - 'a'] != 0){
+                while(r<s2.length() && freq[s2.charAt(r) - 'a'] != 0 && r-l<s1.length()){
                     
-                    freq[(int)(s2.charAt(r) - 'a')]--;
+                    freq[s2.charAt(r) - 'a']--;
                     r++;
                 }
                 if(r-l == s1.length()) return true;
                 while(r>l){
                     
-                    freq[(int)(s2.charAt(r-1) - 'a')]++;
+                    freq[s2.charAt(r-1) - 'a']++;
                     r--;
                 }
             }
