@@ -19,9 +19,10 @@ class Solution {
     private boolean isBalanced = true;
 
     public boolean isBalanced(TreeNode root){
-        if(root == null) this.isBalanced = true;
-        dfs(root);
-        return this.isBalanced;
+        if(root == null) return true;
+        if( Math.abs(maxHeight(root.left) - maxHeight(root.right)) > 1)
+            return false;
+        return isBalanced(root.left) && isBalanced(root.right);
        
     }
 
