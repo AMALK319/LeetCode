@@ -1,8 +1,9 @@
 class Solution(object):
     def mergeAlternately(self, word1, word2):
-        n = len(word1) if len(word1) < len(word2) else len(word2)
-        merged = []
+        n1, n2 = len(word1),len(word2)
+        n = n1 if n1 < n2 else n2
         
+        merged = []
         for i in range(n):
             merged.append(word1[i])
             merged.append(word2[i])        
