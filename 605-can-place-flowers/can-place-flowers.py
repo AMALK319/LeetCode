@@ -13,7 +13,6 @@ class Solution(object):
                     n -= 1
                     i += 2
                 else:
-                    if i+3>=m : return False
                     i += 3
 
         if n == 0 : return True
