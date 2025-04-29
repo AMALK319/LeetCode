@@ -1,7 +1,7 @@
 class Solution(object):
     def increasingTriplet(self, nums):
         n = len(nums)
-        first,second = float("inf"), float("inf")
+        first = second = float('inf')
 
         for i in range(n):
             if nums[i] <= first:
