@@ -11,8 +11,6 @@ class Solution(object):
                 s = s + chars[l] + str(f-l) if f-l>1 else s + chars[l]
                 l = f
                 f += 1
-        print (s)
-
         m = len(s)
         for i in range(m):
             chars[i] = s[i]
