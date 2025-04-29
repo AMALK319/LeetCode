@@ -11,8 +11,7 @@ class Solution(object):
             if(nums[slow] == 0):
                 while(nums[fast] == 0):
                     fast += 1
-                nums[slow] = nums[fast]
-                nums[fast] = 0
+                nums[slow], nums[fast] = nums[fast], 0
                 slow += 1
             else:
                 slow += 1
