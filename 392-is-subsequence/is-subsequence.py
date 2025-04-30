@@ -8,8 +8,7 @@ class Solution(object):
                 slow += 1
             fast += 1
 
-        if slow == n: return True
-        return False
+        return slow == n
         
             
         
