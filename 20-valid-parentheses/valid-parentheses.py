@@ -6,7 +6,7 @@ class Solution:
         for c in s:
             if c in map.keys():
                 stack.append(c)
-            elif len(stack) == 0 or c != map.get(stack.pop()):
+            elif not stack or c != map.get(stack.pop()):
                 return False
         return len(stack) == 0
         
