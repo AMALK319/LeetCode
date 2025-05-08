@@ -1,6 +1,7 @@
 class Solution:
     def removeStars(self, s: str) -> str:
         res = []
+        result = ""
         count = 0
         n = len(s)
 
@@ -13,7 +14,12 @@ class Solution:
                 while((i>= 0 and s[i] == '*') or count>0):
                     count = count+1 if s[i] == '*' else count-1
                     i -= 1
-        
-        return "".join(res[::-1])
+
+        m = len(res)
+        i = m-1
+        while i >= 0 :
+            result += res[i]
+            i -= 1
+        return result
 
       
