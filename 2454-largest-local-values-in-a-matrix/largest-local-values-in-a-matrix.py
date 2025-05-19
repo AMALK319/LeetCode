@@ -3,9 +3,7 @@ class Solution:
         
         n = len(grid)
         maxLocal = [[0]*(n-2) for _ in range(n-2)]
-
-        print(maxLocal)
-
+        
         for row in range(n-2):
             for col in range(n-2):
                 maxGrid = 1
