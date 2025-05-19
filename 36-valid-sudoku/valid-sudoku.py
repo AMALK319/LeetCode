@@ -9,7 +9,6 @@ class Solution:
                 for i in range(row+1,9):
                     if board[row][col] == board[i][col]:
                         return False
-                # Check 3x3 sub-box
                 boxRow = 3 * (row // 3)
                 boxCol = 3 * (col // 3)
                 for i in range(boxRow,boxRow+3):
