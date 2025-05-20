@@ -16,7 +16,7 @@ class Solution:
                 answer += 2*(2*(map[word]//2))
                 if map[word]%2 != 0 :
                     centred = True
-            elif (word[::-1] in map):
+            elif (backward in map):
                 answer += 2*(2*min(map[word], map[backward]))
             map[word] = 0
 
