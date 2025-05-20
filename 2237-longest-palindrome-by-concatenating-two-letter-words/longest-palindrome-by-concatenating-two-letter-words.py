@@ -2,26 +2,25 @@ class Solution:
     def longestPalindrome(self, words: List[str]) -> int:
 
         map = {}
-        double = ""
         for word in words:
             if word in map:
                 map[word] += 1
             else:
                 map[word] = 1
 
-        answer = ""
-
+        answer = 0
+        centred = False
         for word in words:
-            if word == word[::-1]:
-                answer += word*(map[word]//2)
+            backward = word[::-1]
+            if word == backward:
+                answer += 2*(2*(map[word]//2))
                 if map[word]%2 != 0 :
-                    double = word
+                    centred = True
             elif (word[::-1] in map):
-                answer += word*min(map[word], map[word[::-1]])
+                answer += 2*(2*min(map[word], map[backward]))
             map[word] = 0
 
-        reverse = answer[::-1]
-        answer += double + reverse
-
-        return len(answer)
+        if centred :
+            answer += 2
+        return answer
  
