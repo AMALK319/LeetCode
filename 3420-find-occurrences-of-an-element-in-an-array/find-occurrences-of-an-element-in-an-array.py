@@ -1,18 +1,13 @@
 class Solution:
 
     def occurrencesOfElement(self, nums: List[int], queries: List[int], x: int) -> List[int]:
-        occurencies = []
-        
-        for i in range(len(nums)):
-            if nums[i] == x:
-                occurencies.append(i)
-        
-        answer = [0 for _ in range(len(queries))]
-        for i in range(len(queries)):
-            if queries[i]-1 < len(occurencies):
-                answer[i]=occurencies[queries[i]-1]
+        occurencies = [i for i in range(len(nums)) if nums[i] == x]
+        answer = []
+        for q in queries:
+            if q-1 < len(occurencies):
+                answer.append(occurencies[q-1])
             else:
-                answer[i]=-1
+                answer.append(-1)
         return answer
     
     """def occurrencesOfElement(self, nums: List[int], queries: List[int], x: int) -> List[int]:
