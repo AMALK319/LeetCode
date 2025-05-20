@@ -10,14 +10,14 @@ class Solution:
 
         answer = 0
         centred = False
-        for word in map:
+        for word, cnt in map.items():
             backward = word[::-1]
             if word == backward:
-                answer += 2*(2*(map[word]//2))
-                if map[word]%2 != 0 :
+                answer += 2*(2*(cnt//2))
+                if cnt%2 != 0 :
                     centred = True
             elif (backward in map):
-                answer += 2*(2*min(map[word], map[backward]))
+                answer += 2*(2*min(cnt, map[backward]))
             map[word] = 0
 
         if centred :
