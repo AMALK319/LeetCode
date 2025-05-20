@@ -1,5 +1,5 @@
 class Solution:
-    """ 
+
     def occurrencesOfElement(self, nums: List[int], queries: List[int], x: int) -> List[int]:
         occurencies = []
         
@@ -13,9 +13,9 @@ class Solution:
                 answer[i]=occurencies[queries[i]-1]
             else:
                 answer[i]=-1
-        return answer"""
+        return answer
     
-    def occurrencesOfElement(self, nums: List[int], queries: List[int], x: int) -> List[int]:
+    """def occurrencesOfElement(self, nums: List[int], queries: List[int], x: int) -> List[int]:
         map = {}
         occ = 0
         for i in range(len(nums)):
@@ -27,6 +27,6 @@ class Solution:
         for i in range(m):
             answer[i] = map[queries[i]] if queries[i] in map else -1
         
-        return answer
+        return answer"""
 
         
