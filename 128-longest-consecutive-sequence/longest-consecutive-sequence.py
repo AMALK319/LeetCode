@@ -1,5 +1,5 @@
 class Solution:
-    def longestConsecutive(self, nums: List[int]) -> int:
+    """def longestConsecutive(self, nums: List[int]) -> int:
 
         if len(nums)<=1: return len(nums)
         nums.sort()
@@ -13,30 +13,19 @@ class Solution:
                 counts.append(count)
                 count = 1
         counts.append(count)
-        return max(counts)
-            
+        return max(counts)""" 
+    def longestConsecutive(self, nums: List[int]) -> int:
 
-
-        """ map = {}
-
-        for num in nums:
-            if num not in map:
-                map[num] = set()
-                map[num].add(num)
-                temp = num-1
-                while temp in map:
-                    map[num].add(map[temp])
-                    temp -= 1
-                if num+1 in map:
-                    map[num].add(map[num+1])
-
-                
-                
-        print(map)
-        ans = 0
-        for val in map.values():
-            ans = max(ans, len(val))
-        
-        return ans """
-
+        if len(nums)==0: return 0
+        numsSet = set(nums)
+        sequences = []
+        for num in numsSet:
+            if num-1 not in numsSet:
+                seq = [num]
+                temp = num
+                while temp+1 in numsSet:
+                    seq.append(temp+1)
+                    temp += 1
+                sequences.append(seq)
+        return max([len(seq) for seq in sequences])
         
