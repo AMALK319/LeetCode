@@ -10,7 +10,7 @@ class Solution:
 
         answer = 0
         centred = False
-        for word in words:
+        for word in map:
             backward = word[::-1]
             if word == backward:
                 answer += 2*(2*(map[word]//2))
