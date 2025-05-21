@@ -12,7 +12,4 @@ class Solution:
                     break
             if not exists:
                 partitions.append(c)
-        result = []
-        for part in partitions:
-            result.append(len(part))
-        return result
+        return [len(part) for part in partitions]
