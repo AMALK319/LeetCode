@@ -1,13 +1,11 @@
-class Solution(object):
-    def kidsWithCandies(self, candies, extraCandies):
-        res = [False] * len(candies)
-        maxCandies = 0
+class Solution:
+    def kidsWithCandies(self, candies: List[int], extraCandies: int) -> List[bool]:
+        n, result = len(candies), []
+        maxCandies = max(candies)
         for candie in candies:
-            maxCandies = max(maxCandies, candie)
-        for i in range(len(candies)):
-            if candies[i]+extraCandies >= maxCandies:
-                res[i] = True
-        return res
-        
-    
+            if candie+extraCandies >= maxCandies:
+                result.append(True)
+            else:
+                result.append(False)
+        return result
         
