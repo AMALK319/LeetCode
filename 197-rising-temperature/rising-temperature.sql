@@ -1,7 +1,5 @@
 /* Write your PL/SQL query statement below */
-
-select id 
-from weather w
-where temperature > (select temperature 
-                     from weather we 
-                     where we.recordDate = w.recordDate - 1)
+select w1.id as ID
+from weather w1
+join weather w2
+on w1.recordDate = w2.recordDate + 1 and w1.temperature > w2.temperature
