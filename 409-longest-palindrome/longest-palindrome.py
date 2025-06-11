@@ -9,6 +9,6 @@ class Solution:
             if freq%2 != 0:
                 isOdd = True
                 length += freq - 1
-            elif freq%2 == 0:
+            else:
                 length += freq
         return length + 1 if isOdd else length
