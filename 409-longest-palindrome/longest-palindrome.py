@@ -6,11 +6,9 @@ class Solution:
         for c in s:
             freqMap[c] = 1 + freqMap.get(c,0)  
         for freq in freqMap.values():
-            if freq%2 != 0 and not isOdd:
+            if freq%2 != 0:
                 isOdd = True
-                length += freq
-            elif freq%2 != 0 and  isOdd:
                 length += freq - 1
             elif freq%2 == 0:
                 length += freq
-        return length
+        return length + 1 if isOdd else length
